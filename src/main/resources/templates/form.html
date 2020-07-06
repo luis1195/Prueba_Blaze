@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/bootstrap.min.css}">
+<script type="text/javascript" th:src="@{/js/jquery-3.5.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">Prueba Blaze</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarNav" aria-controls="navbarNav"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item ">
+					<a class="nav-link" th:href="@{/listar}">List</a>
+				</li>
+				<li class="nav-item active"><a class="nav-link" th:href="@{/form}">New Client</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	
+	<div class="container">
+	<br>
+		<h1 th:text="${titulo}"></h1>
+		<form th:action="@{/form}" th:object="${cliente}" method="post">
+			<div class="form-row">
+				<div class="col-md-6 mb-3">
+				<label>First Name:</label>
+				<input type="text" th:field="*{firstName}" class="form-control">
+				</div>
+				<div class="col-md-6 mb-3">
+				<label>Last Name:</label>
+				<input type="text" th:field="*{lastName}" class="form-control">
+				</div>
+			</div>
+			
+			<div class="form-row">
+				<div class="col-md-6 mb-3">
+				<label>Email:</label>
+				<input type="text" th:field="*{email}" class="form-control">
+				</div>
+				<div class="col-md-6 mb-3">
+				<label>Phone:</label>
+				<input type="text" th:field="*{phone}" class="form-control">
+				</div>
+			</div>
+			<input type="hidden" th:field="*{id}">
+			<div class="form-row">
+				<div class="col-12 text-center">
+				<button type="submit" class="btn btn-primary" th:text="${boton}"></button>
+				</div>
+			</div>
+				
+
+		</form>
+	</div>
+</body>
+</html>
